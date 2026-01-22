@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .calculator {
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            margin: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .calculator {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            #inp {
+                font-size: 20px;
+                padding: 15px;
+            }
+
+            button {
+                padding: 18px;
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .calculator {
+                max-width: 380px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .calculator {
+                max-width: 400px;
+            }
+        }
+
+        #inp {
+            width: 100%;
+            padding: 20px;
+            font-size: 24px;
+            text-align: right;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background: #f5f5f5;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        button:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .number {
+            background: #f8f8f8;
+        }
+
+        .operator {
+            background: #667eea;
+            color: white;
+        }
+
+        .operator:hover {
+            background: #5568d3;
+        }
+
+        .equals {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .equals:hover {
+            background: #45a049;
+        }
+
+        .clear {
+            background: #f44336;
+            color: white;
+            grid-column: span 2;
+        }
+
+        .clear:hover {
+            background: #da190b;
+        }
+
+        .zero {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="inp" disabled>
+        
+        <div class="buttons">
+            <button class="number" onclick="clickMe(7)">7</button>
+            <button class="number" onclick="clickMe(8)">8</button>
+            <button class="number" onclick="clickMe(9)">9</button>
+            <button class="operator" onclick="clickMe('/')">/</button>
+            
+            <button class="number" onclick="clickMe(4)">4</button>
+            <button class="number" onclick="clickMe(5)">5</button>
+            <button class="number" onclick="clickMe(6)">6</button>
+            <button class="operator" onclick="clickMe('*')">×</button>
+            
+            <button class="number" onclick="clickMe(1)">1</button>
+            <button class="number" onclick="clickMe(2)">2</button>
+            <button class="number" onclick="clickMe(3)">3</button>
+            <button class="operator" onclick="clickMe('-')">−</button>
+            
+            <button class="number zero" onclick="clickMe(0)">0</button>
+            <button class="operator" onclick="clickMe('+')">+</button>
+            <button class="equals" onclick="solve()">=</button>
+            
+            <button class="clear" onclick="clearme()">Clear</button>
+        </div>
+    </div>
+
+    <script>
+        function clickMe(num) {
+            document.getElementById("inp").value += num;
+        }
+        
+        function solve() {
+            try {
+                let answer = eval(inp.value);
+                inp.value = answer;
+            } catch(e) {
+                inp.value = "Error";
+            }
+        }
+        
+        function clearme() {
+            inp.value = "";
+        }
+    </script>
+</body>
+</html>
