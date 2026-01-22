@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+    <style>
+        body {
+            background: linear-gradient(skyblue);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 70%;
+            height: 120px;
+            padding: 15px;
+            font-size: 16px;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+
+        #nom {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #lett {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        code {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a href="calculator.html"></a>
+    <div class="container">
+        <h1>Word and Letter Analyzer</h1>
+        
+        <div class="section">
+            <h2> Word Counter</h2>
+            <textarea placeholder="Type your text here..." onkeyup="checkWords()" id="inp"></textarea>
+            <code><div id="nom">0 word(s)</div></code>
+        </div>
+
+        <div class="section">
+            <h2> Letter Counter</h2>
+            <textarea placeholder="Type your text here..." onkeyup="checkLetters()" id="inpu"></textarea>
+            <code><div id="lett">0 letter(s)</div></code>
+        </div>
+    </div>
+
+    <script>
+        function checkWords() {
+            let text = inp.value;
+            let words = text.split(" ");
+            let count = words.length;
+            
+            nom.innerHTML = count + " word(s)";
+        }
+
+        function checkLetters() {
+            lett.innerHTML = inpu.value.length + " letter(s)";
+        }
+    </script>
+</body>
+</html>
